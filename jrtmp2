@@ -1,0 +1,16 @@
+    task zip(type: Zip) {
+              from ('.') {
+                  include "*"
+                  include "bin/**"
+                  include "data/**"
+                  include "node_modules/**"
+                  include "public/**"
+                  include "routes/**"
+                  include "views/**"
+              }
+              destinationDir(file("dist"))
+              baseName "trainSchedule"
+          }
+
+          build.dependsOn zip
+          zip.dependsOn npm_build
